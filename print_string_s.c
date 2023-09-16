@@ -24,6 +24,9 @@ int _string(va_list args)
 	char *str = va_arg(args, char *);
 	int i;
 
+	if (str == NULL)
+		str = "";
+
 	for (i = 0; str[i]; i++)
 		_putchar(str[i]);
 
