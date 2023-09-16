@@ -33,16 +33,15 @@ int _iterator(const char *format, symbols print_char[], va_list args)
 				char_count += _putchar('%');
 			}
 		}
-
 		else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			char_count += _putchar('%');
 			i++;
 		}
-
 		else if (format[i] == '%' && format[i + 1] == '\0')
+		{
 			return (-1);
-
+		}
 		else
 			char_count += _putchar(format[i]);
 		i++;
