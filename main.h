@@ -10,6 +10,7 @@ typedef struct symbols{
 } symbols;
 
 int _printf(const char *format, ...);
+int _iterator(const char *format, symbols print_char[], va_list args);
 int _putchar(char c);
 int _char(va_list args);
 int _string(va_list args);
