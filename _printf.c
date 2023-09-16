@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	symbols print_char[] = {
-		{'c', _char}, {'s', _string}
+		{'c', _char}, {'s', _string}, {'d', _integer},
+		{'i', _integer}
 	};
 
 	if (format == NULL)

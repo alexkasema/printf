@@ -15,6 +15,8 @@ int _iterator(const char *format, symbols print_char[], va_list args);
 int _putchar(char c);
 int _char(va_list args);
 int _string(va_list args);
+int _integer(va_list args);
+int _print_integers(int n);
 
 #endif
 
