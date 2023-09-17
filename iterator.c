@@ -18,7 +18,7 @@ int _iterator(const char *format, symbols print_char[], va_list args)
 		{
 			int flag = 0;
 
-			for (j = 0; j < 10; j++)
+			for (j = 0; j < 11; j++)
 			{
 				if (format[i + 1] == print_char[j].c)
 				{

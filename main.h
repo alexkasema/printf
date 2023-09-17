@@ -23,6 +23,8 @@ int _octal(va_list args);
 int _hexadecimal(va_list args);
 int _Hexadecimal(va_list args);
 int _my_string(va_list args);
+int _pointers(va_list args);
+int _ptr_hexadecimal(unsigned long int num);
 
 int _print_integers(int n);
 int _print_unsigned_integers(unsigned int n);

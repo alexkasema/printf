@@ -3,7 +3,7 @@
 /**
  * _char - a function that prints a character.
  * @args: list of arguments.
- * Return: character printed.
+ * Return: Number of character printed.
  */
 
 int _char(va_list args)
