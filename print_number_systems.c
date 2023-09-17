@@ -27,7 +27,7 @@ int _binary(va_list args)
 			if (flag == 1 || i == sizeof(unsigned int) * 8 - 1)
 				count += _putchar(0 + '0');
 		}
-		k >>= 1
+		k >>= 1;
 	}
 
 	return (count);
