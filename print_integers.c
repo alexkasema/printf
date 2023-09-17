@@ -6,7 +6,7 @@
  * Return: Number of characters printed
  */
 
-int _integers(va_list args)
+int _integer(va_list args)
 {
 	int n = va_arg(args, int);
 
