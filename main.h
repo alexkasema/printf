@@ -22,6 +22,7 @@ int _unsigned(va_list args);
 int _octal(va_list args);
 int _hexadecimal(va_list args);
 int _Hexadecimal(va_list args);
+int _my_string(va_list args);
 
 int _print_integers(int n);
 int _print_unsigned_integers(unsigned int n);
