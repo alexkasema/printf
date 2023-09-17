@@ -31,5 +31,36 @@ int _binary(va_list args)
 	}
 
 	return (count);
+}
 
+/**
+ * _octal - A function that converts an unsigned int to ocatal value
+ *@args: List of argumets
+ *
+ *Return: Number of octal characters printed
+ */
+
+int _octal(va_list args)
+{
+	int i, count = 0;
+	unsigned int num, index = 0;
+	char octal_digits[32];
+
+	num = va_arg(args, int);
+
+	if (num == 0)
+		return (_putchar('0'));
+
+	while (num > 0)
+	{
+		octal_digits[index] = '0' + (num % 8);
+		num /= 8;
+		index++;
+		count++;
+	}
+
+	for (i = index - 1; i >= 0; i--)
+		_putchar(octal_digits[i]);
+
+	return (count);
 }
