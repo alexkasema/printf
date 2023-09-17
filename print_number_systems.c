@@ -64,3 +64,41 @@ int _octal(va_list args)
 
 	return (count);
 }
+
+/**
+ * _hexadeciaml- A function that converst uns int to hexadeciaml
+ *and converts to lowercase	
+ *@args: List of arguments
+ *Return: Number of hexadecimal values printed
+ */
+
+int _hexadecimal(va_list args)
+{
+	int i, holder, index = 0, count = 0;
+	unsigned int num;
+	char hexa_decimal[32];
+
+	num = va_arg(args, unsigned int);
+
+	if (num == 0)
+		return (_putchar('0'));
+
+	while (num > 0)
+	{
+		holder = num % 16;
+
+		if(holder < 10)
+			hexa_decimal[index] = '0' + holder;
+		else
+			hexa_decimal[index] = 'a' + (holder - 10);
+
+		num /= 16;
+		index++;
+		count++;
+	}
+
+	for (i = index - 1; i >= 0; i--)
+		_putchar(hexa_decimal[i]);
+
+	return (count);
+}
