@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _integers - a function that prints out integers.
+ * _integer - a function that prints out integers.
  * @args: List of arguments
  * Return: Number of characters printed
  */
@@ -13,6 +13,19 @@ int _integer(va_list args)
 	return (_print_integers(n));
 }
 
+/**
+ * _unsigned - a function that prints unsigned ints.
+ * @args: List of arguments
+ * Return: number of unsigned integers printed
+ */
+
+int _unsigned(va_list args)
+{
+	unsigned int n;
+
+	n = va_arg(args, unsigned int);
+	return (_print_unsigned_integers(n));
+}
 
 /**
  * _print_integers - a function that outputs an integer.
@@ -43,3 +56,24 @@ int _print_integers(int n)
 
 	return (count);
 }
+
+/**
+ * _print_unsigned_integers - a function that outputs unsigned int.
+ * @n: unsigned int to output.
+ * Return: numbers of unsigned integers printed.
+ */
+
+int _print_unsigned_integers(unsigned int n)
+{
+	int count = 0;
+
+	if (n > 9)
+	{
+		count += _print_integers(n / 10);
+	}
+
+	count += _putchar(n % 10 + '0');
+
+	return (count);
+}
+

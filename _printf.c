@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
 	symbols print_char[] = {
 		{'c', _char}, {'s', _string}, {'d', _integer},
-		{'i', _integer}, {'b', _binary}
+		{'i', _integer}, {'b', _binary},{'u', _unsigned}
 	};
 
 	if (format == NULL)
