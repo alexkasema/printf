@@ -29,7 +29,46 @@ int _reverse_string(va_list args)
 }
 
 
+/**
+ * _rot13 - a fuction that encodes a string using rot13
+ * @args: list of arguments
+ * Return: length of string
+ */
 
+int _rot13(va_list args)
+{
+	int i, j;
+	char *str = va_arg(args, char *);
+
+	char *letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *encode = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	if (str == NULL)
+	{
+		str = "(null)";
+
+		for (i = 0; str[i]; i++)
+			_putchar(str[i]);
+		return (i);
+	}
+	for (i = 0; str[i]; i++)
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+		{
+			for (j = 0; letters[j]; j++)
+			{
+				if (str[i] == letters[j])
+				{
+					_putchar(encode[j]);
+					break;
+				}
+			}
+		}
+		else
+			putchar(str[i]);
+	}
+	return (i);
+}
 
 
 

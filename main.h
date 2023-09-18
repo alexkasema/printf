@@ -33,6 +33,7 @@ int _Hexadecimal(va_list args);
 int _my_string(va_list args);
 int _pointers(va_list args);
 int _reverse_string(va_list args);
+int _rot13(va_list args);
 
 int _ptr_hexadecimal(unsigned long int num);
 int _print_integers(int n);

@@ -17,7 +17,8 @@ int _printf(const char *format, ...)
 		{'c', _char}, {'s', _string}, {'d', _integer},
 		{'i', _integer}, {'b', _binary},{'u', _unsigned},
 		{'o', _octal}, {'x', _hexadecimal},{'X', _Hexadecimal},
-		{'S', _my_string}, {'p', _pointers}, {'r', _reverse_string}
+		{'S', _my_string}, {'p', _pointers}, {'r', _reverse_string},
+		{'R', _rot13}
 	};
 
 	if (format == NULL)
