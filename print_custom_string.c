@@ -40,8 +40,8 @@ int _rot13(va_list args)
 	int i, j;
 	char *str = va_arg(args, char *);
 
-	char *letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char *encode = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char letters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char encode[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	if (str == NULL)
 	{
@@ -51,21 +51,17 @@ int _rot13(va_list args)
 			_putchar(str[i]);
 		return (i);
 	}
+
 	for (i = 0; str[i]; i++)
 	{
-		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+		for (j = 0; letters[j]; j++)
 		{
-			for (j = 0; letters[j]; j++)
+			if (str[i] == letters[j])
 			{
-				if (str[i] == letters[j])
-				{
-					_putchar(encode[j]);
-					break;
-				}
+				_putchar(encode[j]);
+				break;
 			}
 		}
-		else
-			putchar(str[i]);
 	}
 	return (i);
 }
