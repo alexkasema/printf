@@ -6,7 +6,15 @@
 #include <unistd.h>
 #include <limits.h>
 
-typedef struct symbols{
+/**
+ * struct symbols - A structure that contains a char symbol
+ * and a pointer to a function
+ * @c: a character that represents a specifier
+ * @f: pointer to fuction that handles a specifier.
+ */
+
+typedef struct symbols
+{
 	char c;
 	int (*f)(va_list args);
 } symbols;
@@ -28,6 +36,7 @@ int _ptr_hexadecimal(unsigned long int num);
 
 int _print_integers(int n);
 int _print_unsigned_integers(unsigned int n);
+int _str_len(char *str);
 
 #endif
 
