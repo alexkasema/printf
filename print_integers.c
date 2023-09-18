@@ -37,7 +37,15 @@ int _print_integers(int n)
 {
 	int count = 0;
 
-	if (n < 0)
+	if (n == INT_MIN)
+	{
+		count += _putchar('-');
+		count += _putchar('2');
+		n %= 1000000000;
+		n = -n;
+	}
+
+	else if (n < 0)
 	{
 		count += _putchar('-');
 		n = -n;
