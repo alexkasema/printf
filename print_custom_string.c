@@ -37,7 +37,7 @@ int _reverse_string(va_list args)
 
 int _rot13(va_list args)
 {
-	int i, j;
+	int i, j, count = 0;
 	char *str = va_arg(args, char *);
 
 	char letters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -59,11 +59,18 @@ int _rot13(va_list args)
 			if (str[i] == letters[j])
 			{
 				_putchar(encode[j]);
+				count++;
 				break;
 			}
 		}
+
+		if (!letters[j])
+		{
+			_putchar(str[i]);
+			count++;
+		}
 	}
-	return (i);
+	return (count);
 }
 
 
