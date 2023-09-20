@@ -2,12 +2,12 @@
 
 /**
  * _binary - A function that converts and prints int to binary
- *@args: List of arguments
- *
- *Return: Number of characters printed
+ * @args: List of arguments
+ * @fl: Pointer to structure containing our flags
+ * Return: Number of characters printed
  */
 
-int _binary(va_list args)
+int _binary(va_list args, flags_t __attribute__((unused)) *fl)
 {
 	unsigned int i, num, k = 1;
 	int count = 0, flag = 0;
@@ -35,12 +35,12 @@ int _binary(va_list args)
 
 /**
  * _octal - A function that converts an unsigned int to ocatal value
- *@args: List of argumets
- *
- *Return: Number of octal characters printed
+ * @args: List of argumets
+ * @fl: Pointer to structure that contains our flags
+ * Return: Number of octal characters printed
  */
 
-int _octal(va_list args)
+int _octal(va_list args, flags_t *fl)
 {
 	int i, count = 0;
 	unsigned int num, index = 0;
@@ -59,6 +59,9 @@ int _octal(va_list args)
 		count++;
 	}
 
+	if (fl->hash == 1)
+		count += _putchar('0');
+
 	for (i = index - 1; i >= 0; i--)
 		_putchar(octal_digits[i]);
 
@@ -69,14 +72,16 @@ int _octal(va_list args)
  * _hexadecimal- A function that converts uns int to hexadecimal
  * in lowercase
  * @args: List of arguments
+ * @fl: Pointer to a structure that contains our flags
  * Return: Number of hexadecimal values printed
  */
 
-int _hexadecimal(va_list args)
+int _hexadecimal(va_list args, flags_t *fl)
 {
-	int i, holder, index = 0, count = 0;
+	int i, j, holder, index = 0, count = 0;
 	unsigned int num;
 	char hexa_decimal[32];
+	char str[] = "0x";
 
 	num = va_arg(args, unsigned int);
 
@@ -97,6 +102,12 @@ int _hexadecimal(va_list args)
 		count++;
 	}
 
+	if (fl->hash == 1)
+	{
+		for (j = 0; str[j]; j++)
+			count += _putchar(str[j]);
+	}
+
 	for (i = index - 1; i >= 0; i--)
 		_putchar(hexa_decimal[i]);
 
@@ -107,14 +118,16 @@ int _hexadecimal(va_list args)
  * _Hexadecimal - A function that converts uns int to Hexadecimal
  * in uppercase
  * @args: A list of arguments
+ * @fl: A pointer to a structure that contains our flags
  * Return: Number of hexadecimal characters printed
  */
 
-int _Hexadecimal(va_list args)
+int _Hexadecimal(va_list args, flags_t *fl)
 {
-	int i, holder, index = 0, count = 0;
+	int i, j, holder, index = 0, count = 0;
 	unsigned int num;
 	char Hexa_decimal[32];
+	char str[] = "0X";
 
 	num = va_arg(args, unsigned int);
 
@@ -132,6 +145,12 @@ int _Hexadecimal(va_list args)
 		num /= 16;
 		index++;
 		count++;
+	}
+
+	if (fl->hash == 1)
+	{
+		for (j = 0; str[j]; j++)
+			count += _putchar(str[j]);
 	}
 	for (i = index - 1; i >= 0; i--)
 		_putchar(Hexa_decimal[i]);

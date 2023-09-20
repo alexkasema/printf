@@ -3,10 +3,11 @@
 /**
  * _reverse_string - a function that prints a string in reverse.
  * @args: list of arguments
+ * @fl: Pointer to structure that contains our flag
  * Return: length of string
  */
 
-int _reverse_string(va_list args)
+int _reverse_string(va_list args, flags_t __attribute__((unused)) *fl)
 {
 	int i, len = 0;
 	char *str = va_arg(args, char *);
@@ -32,10 +33,11 @@ int _reverse_string(va_list args)
 /**
  * _rot13 - a fuction that encodes a string using rot13
  * @args: list of arguments
+ * @fl: Pointer to structure that contains our flags
  * Return: length of string
  */
 
-int _rot13(va_list args)
+int _rot13(va_list args, flags_t __attribute__((unused)) *fl)
 {
 	int i, j, count = 0;
 	char *str = va_arg(args, char *);

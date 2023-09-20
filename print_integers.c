@@ -3,23 +3,36 @@
 /**
  * _integer - a function that prints out integers.
  * @args: List of arguments
+ * @fl: Pointer to structure that contains our flags
  * Return: Number of characters printed
  */
 
-int _integer(va_list args)
+int _integer(va_list args, flags_t *fl)
 {
 	int n = va_arg(args, int);
 
-	return (_print_integers(n));
+	int count = 0;
+
+	if (fl->space == 1 && fl->plus == 0 && n >= 0)
+		count += _putchar(' ');
+
+	if (fl->plus == 1 && n >= 0)
+		count += _putchar('+');
+
+	if (n < 0)
+		count++;
+
+	return (_print_integers(n) + count);
 }
 
 /**
  * _unsigned - a function that prints unsigned ints.
  * @args: List of arguments
+ * @fl: Pointer to structure that has our flags
  * Return: number of unsigned integers printed
  */
 
-int _unsigned(va_list args)
+int _unsigned(va_list args, flags_t __attribute__((unused)) *fl)
 {
 	unsigned int n;
 

@@ -2,12 +2,12 @@
 
 /**
  * _pointers- A function that prints a pointer address
- *@args: A list of arguments
- *
+ * @args: A list of arguments
+ * @fl: A pointer to a structure that contains our flags
  *Return: Number of characters printed
  */
 
-int _pointers(va_list args)
+int _pointers(va_list args, flags_t __attribute__((unused)) *fl)
 {
 	void *ptr;
 	char *str = "(nil)";

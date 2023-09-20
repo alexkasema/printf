@@ -8,7 +8,7 @@
  *@args: A list of arguments from the function
  *Return: The number of characters printed
  */
-int _iterator(const char *format, symbols print_char[], va_list args)
+int _iterator(const char *format, symbols print_char[], flags_t flags[], va_list args)
 {
 	int i = 0, j, char_count = 0;
 
@@ -18,12 +18,17 @@ int _iterator(const char *format, symbols print_char[], va_list args)
 		{
 			int flag = 0;
 
+			while (_get_flag(format[i + 1], flags))
+			{
+				i++;
+				break;
+			}
 			for (j = 0; j < 13; j++)
 			{
 				if (format[i + 1] == print_char[j].c)
 				{
 					flag = 1;
-					char_count += print_char[j].f(args);
+					char_count += print_char[j].f(args, flags);
 					i++;
 					break;
 				}
@@ -46,6 +51,5 @@ int _iterator(const char *format, symbols print_char[], va_list args)
 			char_count += _putchar(format[i]);
 		i++;
 	}
-
 	return (char_count);
 }

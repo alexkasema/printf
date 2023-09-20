@@ -3,12 +3,13 @@
 /**
  * _char - a function that prints a character.
  * @args: list of arguments.
+ * @fl: A pointer to a structure that has our flags
  * Return: Number of character printed.
  */
 
-int _char(va_list args)
+int _char(va_list args, flags_t __attribute__((unused)) *fl)
 {
-	char c = va_arg(args, int);
+	char c = (char)va_arg(args, int);
 
 	return (_putchar(c));
 }
@@ -16,10 +17,11 @@ int _char(va_list args)
 /**
  * _string - a function that prints a string.
  * @args: list of arguments.
+ * @fl: Pointer to a structure that has our flags
  * Return: number of characters printed.
  */
 
-int _string(va_list args)
+int _string(va_list args, flags_t __attribute__((unused)) *fl)
 {
 	char *str = va_arg(args, char *);
 	int i;
@@ -36,10 +38,11 @@ int _string(va_list args)
 /**
  * _my_string - a function that prints a customized string
  * @args: List of arguments.
+ * @fl: A pointer to a structure that has our flags
  * Return: number of characters printed.
  */
 
-int _my_string(va_list args)
+int _my_string(va_list args, flags_t __attribute__((unused)) *fl)
 {
 	int i, count = 0;
 	char *str = va_arg(args, char *);
